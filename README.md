@@ -16,7 +16,7 @@ The rules are designed to be:
 * **Actual (`actual`)**: Number of tricks the player actually wins.
 * **Difference (`difference`)**:
 
-```
+```id="f4l2an"
 difference = abs(actual - bid)
 ```
 
@@ -27,11 +27,22 @@ difference = abs(actual - bid)
 2. Playing all tricks
 3. Calculating scores
 
+* **Bola**:
+  A complete game cycle consisting of **13 rounds**
+
+---
+
+# 🔢 Game Structure
+
+* Each **Bola = 13 rounds**
+* Rounds are played sequentially
+* Special mechanics (e.g., color change) may alter order but do not change total scoring rules
+
 ---
 
 # ✅ Win / Loss Condition
 
-```
+```id="7h2c9p"
 WIN  ⇢ actual == bid  
 LOSS ⇢ actual != bid
 ```
@@ -67,13 +78,13 @@ The only shared (global) condition is:
 
 ### Win:
 
-```
+```id="6h3o8m"
 score = 13 + 10 + bid
 ```
 
 ### Loss:
 
-```
+```id="2v3fop"
 score = -(10 + difference)
 ```
 
@@ -83,13 +94,13 @@ score = -(10 + difference)
 
 ### Win:
 
-```
+```id="m1l9zs"
 score = 13 + bid
 ```
 
 ### Loss:
 
-```
+```id="n8x5yt"
 score = -difference
 ```
 
@@ -118,7 +129,7 @@ When a player bids `0`, there are two possible interpretations:
 
 # 🟦 Table Rule
 
-```
+```id="6fpp1j"
 Under ⇢ total bids < 13  
 Over  ⇢ total bids > 13  
 ```
@@ -147,7 +158,7 @@ Over  ⇢ total bids > 13
 
 * Applies when:
 
-```
+```id="1xk0np"
 bid ≥ 8
 ```
 
@@ -159,7 +170,7 @@ bid ≥ 8
 
 ## Win Score
 
-```
+```id="f8v0d1"
 score = bid²
 ```
 
@@ -167,7 +178,7 @@ score = bid²
 
 ## Loss Penalty
 
-```
+```id="yz8g8p"
 score = -(10 × (bid - 5))
 ```
 
@@ -192,7 +203,7 @@ score = -(10 × (bid - 5))
 
 Occurs when:
 
-```
+```id="2g2i6p"
 No player wins the round
 ```
 
@@ -205,7 +216,7 @@ No player wins the round
 
 * Next round:
 
-```
+```id="h2g4ld"
 All scores ×2
 ```
 
@@ -233,7 +244,7 @@ All scores ×2
 
 ## Trigger
 
-* Occurs in the last 5 rounds
+* Occurs in the last 5 rounds of the Bola
 * Any player bids `≥ 8`
 
 ## Effect
@@ -246,6 +257,7 @@ All scores ×2
 
 * Affects **game flow only**
 * Does **not affect scoring calculations**
+* Does not change the total number of rounds in the Bola (remains 13)
 
 ---
 
@@ -253,7 +265,7 @@ All scores ×2
 
 All scoring must follow this exact sequence:
 
-```
+```id="8d6p1z"
 1. Determine WIN / LOSS
 2. If bid ≥ 8 → apply Special Call
 3. Else if bid = 0 AND Dash Call declared → apply Dash Call
@@ -268,6 +280,7 @@ All scoring must follow this exact sequence:
 
 # ⚠️ Additional Rules & Constraints
 
+* Each Bola consists of exactly **13 rounds**
 * Total bids across all players must never equal `13`
 * Minimum Call bid is `4`
 * Bid `0`:
